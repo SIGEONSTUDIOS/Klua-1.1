@@ -20,7 +20,7 @@ def make(name, value):
         print("Klua Error:", error)
 
 
-def Kprint(text):
+def kprint(text):
     try:
         if text in variables:
             print(variables[text])
