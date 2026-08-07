@@ -1,5 +1,5 @@
 import time
-
+import random
 
 variables = {}
 functions = {}
@@ -27,23 +27,23 @@ def make(name, value): #variable creation
         elif isinstance(value, int):
             variables[name] = value
         elif isinstance(value, str):
-            variables[name] = int(value)
+            variables[name] = str(value)
         else:
             variables[name] = value
         return variables[name]
     except Exception as error:
         print("Klua Error:", error)
 
-
 def kprint(text): #output
     try:
-        if text in variables:
+        if isinstance(text, int):
+            print(text)
+        elif text in variables:
             print(variables[text])
         else:
             print(text)
     except Exception as error:
         print("Klua Error:", error)
-        
 
 def condition(condition): #conditions
     return eval(condition, {}, variables)
@@ -54,11 +54,13 @@ def math(operator, name, amount): #math
         if operator == "add":
             if name in variables:
                 variables[name] += amount
+                return variables[name]
             else:
                 print("Klua error: Variable not found")
         elif operator == "minus":
             if name in variables:
                 variables[name] -= amount
+                return variables[name]
             else:
                 print("Klua error: Variable not found")
     except Exception as error:
@@ -73,6 +75,40 @@ def wait(amount): #waiting
             time.sleep(amount)
         elif isinstance(amount, str):
             print("Klua error: amount must be a number not a string")
+        elif isinstance(amount, float):
+            print("Klua Warning: we dont support floats yet!")
     except Exception as error:
         print("Klua error:",error)
+
+
+def roll(name, min, max):
+    try:
+        if isinstance(min, int) and isinstance(max, int):
+            variables[name] = random.randint(min, max)
+            return variables[name]
+        else:
+            print("Klua error: min and max must be numbers")
+    except Exception as error:
+        print("Klua error:", error)
+
+def pick(name, options):
+    variables[name] = random.choice(options)
+
+def delete(name):
+    try:
+        if name in variables:
+            del variables[name]
+        else:
+            print("Klua Error: variable not found")
+    except Exception as error:
+        print("Klua Error:", error)
+
+def found(name):
+    try:
+        return name in variables
+    except Exception as error:
+        print("Klua Error:", error)
+
+def clear():
+    variables.clear()
 
