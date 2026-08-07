@@ -1,6 +1,11 @@
 import time
 import random
+import webbrowser
+import platform
 
+
+
+modules = {}
 variables = {}
 functions = {}
 
@@ -111,4 +116,24 @@ def found(name):
 
 def clear():
     variables.clear()
+
+def search(url):
+    try:
+        webbrowser.open(url)
+    except Exception as error:
+        print("Klua error:",error)
+
+def PLT_show(action):
+    try:
+        if action == "system":
+            return platform.system()
+        elif action == "procceser":
+            return platform.processor()
+    except Exception as error:
+        print("Klua Error:",error)
+
+
+                
+# WRITE CODE UNDER ME \/
+
 
