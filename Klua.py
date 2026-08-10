@@ -2,8 +2,9 @@ import time
 import random
 import webbrowser
 import platform
-
-
+import colorama
+from colorama import Fore, Back, Style
+colorama.init()
 
 modules = {}
 variables = {}
@@ -49,6 +50,11 @@ def kprint(text): #output
             print(text)
     except Exception as error:
         print("Klua Error:", error)
+
+
+    except Exception as error:
+        print("Klua Error:", error)
+
 
 def condition(condition): #conditions
     return eval(condition, {}, variables)
@@ -135,5 +141,3 @@ def PLT_show(action):
 
                 
 # WRITE CODE UNDER ME \/
-
-
