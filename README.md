@@ -4,6 +4,8 @@ Klua is a Python-powered scripting language focused on simplicity, readability, 
 
 This SDK contains the built-in functions available in Klua.
 
+support me by gifting something to me via my withlist i beg
+https://store.steampowered.com/wishlist/profiles/76561199813570330/
 ---
 
 # Variables
