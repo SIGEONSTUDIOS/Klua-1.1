@@ -4,9 +4,19 @@ import webbrowser
 import platform
 import colorama
 from colorama import Fore, Back, Style
+from PIL import Image
+import winsound
+import os
+import sys
+
+#klua dependendents #todo start to create dependancys
+#import var_storage status: exists but doesnt work
+#import kprint ---- status: exists but doesnt work
+
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 colorama.init()
 
-modules = {}
+#todo removed modules = {} since not needed 
 variables = {}
 functions = {}
 
@@ -26,34 +36,78 @@ def get(name, text): #input
     variables[name] = input(text)
     return variables[name]
 
-def make(name, value): #variable creation
+def make(name, value, debug): #variable creation #todo make it so debug_false isnt required
     try:
-        if isinstance(value, bool):
-            variables[name] = bool(value)
-        elif isinstance(value, int):
-            variables[name] = value
-        elif isinstance(value, str):
-            variables[name] = str(value)
+        if debug == "debug_true":
+            if isinstance(value, bool):
+                print("value is a boolean -DEBUG")
+                print("var =",value, "name =",name, "-DEBUG")
+                variables[name] = bool(value)
+            elif isinstance(value, int):
+                print("value is an integretor -DEBUG")
+                print("var =",value, "name =",name, "-DEBUG")
+                variables[name] = value
+            elif isinstance(value, str):
+                print("value is a string -DEBUG")
+                print("var =",value, "name =",name, "-DEBUG")
+                variables[name] = str(value)
         else:
             variables[name] = value
         return variables[name]
     except Exception as error:
         print("Klua Error:", error)
 
-def kprint(text): #output
+def kprint(text, debug): #output #todo make it so debug_false isnt required
     try:
-        if isinstance(text, int):
-            print(text)
-        elif text in variables:
-            print(variables[text])
-        else:
-            print(text)
+        try:
+            if debug == "debug_true":
+                print("debug_true flag active -DEBUG")
+                if isinstance(text, int):
+                    print("text is an integretor -DEBUG")
+                    if text in variables:
+                        print("integretor is a var -DEBUG")
+                        print(variables[text])
+                    else:
+                        print("integretor isnt a var -DEBUG",)
+                        print(text)
+                elif isinstance(text, str):
+                    print("text is a string -DEBUG")
+                    if text in variables:
+                        print("string is an var -DEBUG")
+                        print("var contains", variables[text], "-DEBUG")
+                        print(variables[text])
+                    else:
+                        print("string isnt a var -DEBUG")
+                        print(text)
+            elif debug == "debug_false":
+                if isinstance(text, int):
+                    if text in variables:
+                        print(variables[text])
+                    else:
+                        print(text)
+                elif isinstance(text, str):
+                    if text in variables:
+                        print(variables[text])
+                    else:
+                        print(text)
+        except Exception as error:
+            print("klua error", error)
     except Exception as error:
-        print("Klua Error:", error)
+        print("klua error", error)
 
 
-    except Exception as error:
-        print("Klua Error:", error)
+
+
+        
+
+
+
+
+
+
+
+
+
 
 
 def condition(condition): #conditions
@@ -133,11 +187,17 @@ def PLT_show(action):
     try:
         if action == "system":
             return platform.system()
-        elif action == "procceser":
+        elif action == "processor":
             return platform.processor()
     except Exception as error:
         print("Klua Error:",error)
 
 
+
+
+
+
+
+            
                 
 # WRITE CODE UNDER ME \/
