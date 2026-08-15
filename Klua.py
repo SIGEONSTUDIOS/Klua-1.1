@@ -8,6 +8,7 @@ from PIL import Image
 import winsound
 import os
 import sys
+import psutil 
 
 #klua dependendents #todo start to create dependancys
 #import var_storage status: exists but doesnt work
@@ -19,6 +20,9 @@ colorama.init()
 #todo removed modules = {} since not needed 
 variables = {}
 functions = {}
+
+
+
 
 def do(name, code): 
     functions[name] = code
@@ -36,9 +40,9 @@ def get(name, text): #input
     variables[name] = input(text)
     return variables[name]
 
-def make(name, value, debug): #variable creation #todo make it so debug_false isnt required
+def make(name, value): #variable creation #todo make it so debug_false isnt required
     try:
-        if debug == "debug_true":
+        if DEBUGGING and feature == "make":
             if isinstance(value, bool):
                 print("value is a boolean -DEBUG")
                 print("var =",value, "name =",name, "-DEBUG")
@@ -57,10 +61,10 @@ def make(name, value, debug): #variable creation #todo make it so debug_false is
     except Exception as error:
         print("Klua Error:", error)
 
-def kprint(text, debug): #output #todo make it so debug_false isnt required
+def kprint(text): #output #todo make it so debug_false isnt required
     try:
         try:
-            if debug == "debug_true":
+            if DEBUGGING and feature == "kprint":
                 print("debug_true flag active -DEBUG")
                 if isinstance(text, int):
                     print("text is an integretor -DEBUG")
@@ -79,7 +83,7 @@ def kprint(text, debug): #output #todo make it so debug_false isnt required
                     else:
                         print("string isnt a var -DEBUG")
                         print(text)
-            elif debug == "debug_false":
+            else:
                 if isinstance(text, int):
                     if text in variables:
                         print(variables[text])
@@ -194,10 +198,25 @@ def PLT_show(action):
 
 
 
+def DEBUG(option, ft=None):
+    global DEBUGGING
+    global feature
+    DEBUG = False
+    feature = ft
+    if option == True:
+        DEBUGGING = True
+    elif option == False:
+        DEBUGGING = False
 
 
+
+    
 
 
             
                 
 # WRITE CODE UNDER ME \/
+DEBUG(False, None) #crashes without, change it to True to debug,
+#change None to something like kprint to debug kprint
+
+
