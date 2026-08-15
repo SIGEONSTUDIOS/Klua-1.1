@@ -1,3 +1,9 @@
+
+## HOTFIX COMING OUT SOON
+theres a bug where you have to put debug_true
+or debug_false in every kprint statment or make statment
+im trying to make debug_() a global flag
+
 # Klua 1.1 SDK Documentation
 
 ## Introduction
