@@ -1,4 +1,11 @@
 
+## PYGAME REMOVED
+pygame is only working on certian python versions
+so we are trying to make a renderer and audio engine
+(targeting windows 11 and debian based linux)
+
+
+
 ## HOTFIX COMING OUT SOON
 theres a bug where you have to put debug_true
 or debug_false in every kprint statment or make statment
