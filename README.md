@@ -7,7 +7,7 @@ so we are trying to make a renderer and audio engine
 
 
 ## HOTFIX COMING OUT SOON
-theres a bug where you have to put debug_true
+theres an annoying feature where you have to put debug_true
 or debug_false in every kprint statment or make statment
 im trying to make debug_() a global flag
 
