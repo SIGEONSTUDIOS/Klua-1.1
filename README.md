@@ -137,8 +137,9 @@ Hello!
 ```python
 make("money", 100)
 
-if condition("money >= 50"):
+if condition("'money' >= 50"):
     print("Purchase successful")
+    you HAVE to put '' if its string
 ```
 
 Output:
