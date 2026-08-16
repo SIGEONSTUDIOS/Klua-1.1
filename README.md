@@ -6,11 +6,8 @@ so we are trying to make a renderer and audio engine
 
 
 
-## HOTFIX COMING OUT SOON
-theres an annoying feature where you have to put debug_true
-or debug_false in every kprint statment or make statment
-im trying to make debug_() a global flag
-
+## I tried to access cpu temps
+but its hard to code it
 # Klua 1.1 SDK Documentation
 
 ## Introduction
