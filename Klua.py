@@ -40,7 +40,7 @@ def get(name, text): #input
     variables[name] = input(text)
     return variables[name]
 
-def make(name, value): #variable creation #todo make it so debug_false isnt required
+def make(name, value): #variable creation 
     try:
         if DEBUGGING and feature == "make":
             if isinstance(value, bool):
@@ -61,7 +61,7 @@ def make(name, value): #variable creation #todo make it so debug_false isnt requ
     except Exception as error:
         print("Klua Error:", error)
 
-def kprint(text): #output #todo make it so debug_false isnt required
+def kprint(text): #output 
     try:
         try:
             if DEBUGGING and feature == "kprint":
