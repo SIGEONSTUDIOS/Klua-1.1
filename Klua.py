@@ -7,8 +7,11 @@ from colorama import Fore, Back, Style
 from PIL import Image
 import winsound
 import os
-import sys
 import psutil 
+from threading import Thread
+import tkinter as tk
+import sys
+sys.dont_write_bytecode = True
 
 #klua dependendents #todo start to create dependancys
 #import var_storage status: exists but doesnt work
@@ -209,14 +212,16 @@ def DEBUG(option, ft=None):
         DEBUGGING = False
 
 
-
+def ram():
+    ram = psutil.virtual_memory()
+    return f"{ram.used / (1024 ** 3):.1f}/{ram.total / (1024 ** 3):.1f} GB"
+    
     
 
 
-            
+
+
                 
 # WRITE CODE UNDER ME \/
-DEBUG(False, None) #crashes without, change it to True to debug,
-#change None to something like kprint to debug kprint
 
 
