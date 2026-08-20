@@ -7,11 +7,11 @@ klua.py stable v1.2\n
 
 ## I tried to access cpu temps
 but its hard to code it
-# Klua 1.1 SDK Documentation
+# Klua 1.2 SDK Documentation
 
 ## Introduction
 
-Klua is a lightweight Python-powered scripting SDK designed for simplicity, readability, and rapid development. Klua 1.1 introduces improved debugging support, variable management, functions, conditions, randomization, and utility features.
+Klua is a lightweight Python-powered scripting SDK designed for simplicity, readability, and rapid development. Klua 1.2 introduces improved debugging support, variable management, functions, conditions, randomization, and utility features.
 
 ---
 
@@ -317,4 +317,4 @@ Klua Error: variable not found
 
 Created by SIGEON STUDIOS
 
-Version: Klua 1.1
+Version: Klua 1.2
