@@ -1,8 +1,8 @@
 
 ## FILES
-Renderer.py beta
-AudioEngine.py beta
-klua.py stable v1.2
+Renderer.py beta\n
+AudioEngine.py beta\n
+klua.py stable v1.2\n
 
 
 ## I tried to access cpu temps
