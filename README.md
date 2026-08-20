@@ -1,9 +1,8 @@
 
-## PYGAME REMOVED
-pygame is only working on certian python versions
-so we are trying to make a renderer and audio engine
-(targeting windows 11 and debian based linux)
-
+##FILES
+Renderer.py beta
+AudioEngine.py beta
+klua.py stable v1.2
 
 
 ## I tried to access cpu temps
